@@ -1,0 +1,58 @@
+using CustomerApi.Models;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Net;
+using System.Net.Http;
+using System.Web.Http;
+
+namespace CustomerApi.Controllers
+{
+    public class CustomerController : ApiController
+    {
+        private CustomerDbContext db = new CustomerDbContext();
+
+
+        //.http://localhost:51515/api/Customer
+        public IEnumerable<LalithCustomer> Get()
+        {
+            return db.LalithCustomers;
+        }
+
+        //.http://localhost:51515/api/Customer/?CustomerId=2
+        //[Route("querystring")]
+        //public IHttpActionResult GetCustomer([FromUri]LalithCustomer cust)
+        //{
+        //    if(cust == null)
+        //    {
+        //        return BadRequest("Customer id is required");
+        //    }
+        //    var customer = db.LalithCustomers.FirstOrDefault((s) => s.CustomerId == cust.CustomerId);
+
+        //    if(customer==null)
+        //    {
+        //        return NotFound();
+        //    }
+
+        //    return Ok(customer);
+        //}
+
+
+
+        //.http://localhost:51515/insert/?CustomerName=Chandan&Location=Chennai&PhoneNo=9874563210&Email=chandan@gmail.com
+        [Route("insert")]
+        [HttpGet]
+        public LalithCustomer PostCustomer([FromUri]LalithCustomer customer)
+        {
+           
+            
+                db.LalithCustomers.Add(customer);
+                db.SaveChanges();
+
+                return customer;
+            
+
+        }
+
+    }
+}
