@@ -1,0 +1,314 @@
+<div class="form-group">
+
+      <div class="col-md-offset-2 col-md-10">
+
+        <input type="submit" value="Save" class="btn btn-default" />
+
+        <button type="submit" id="btnCancelSecForm" name="Command" value="Cancel" onclick="$('#cancelForm').submit()"> Cancel (Server Side by Second Form)</button>
+
+         
+
+}
+
+step-2
+
+<div class="form-group">
+
+      <div class="col-md-offset-2 col-md-10">
+
+        <input type="submit" value="Save" class="btn btn-default" />
+
+        <button type="submit" id="btnCancelSecForm" name="Command" value="Cancel" onclick="$('#cancelForm').submit()"> Cancel (Server Side by Second Form)</button>
+
+         
+
+}
+
+      </div>
+
+    </div>
+
+  </div>
+
+}
+
+@using (Html.BeginForm("MultipleButtonCancel", "Home", FormMethod.Post, new { id = "cancelForm" })) { } 
+
+
+
+ [HttpPost]
+
+    public ActionResult MultipleButtonCancel()
+
+    {
+
+
+
+      return View("Index");
+
+    }
+
+
+
+
+
+
+
+@{
+
+  ViewBag.Title = "Index";
+
+}
+
+
+
+<h2>Binding Collection</h2>
+
+
+
+
+
+<form method="get" action="@Url.Action("PrintListNumbers")">
+
+  <input type="text" name="numbers[0]" value="1" />
+
+  <input type="text" name="numbers[1]" value="2" />
+
+  <input type="text" name="numbers[2]" value="3" />
+
+  <input type="submit" value="Submit" />
+
+</form>
+
+
+
+<h2>Binding model</h2>
+
+
+
+<form method="get" action="@Url.Action("PrintTrainer")">
+
+  TrainerId : 
+
+  <input type="text" name="TrainerId" value="1" />
+
+  <br />
+
+  TrainerName : 
+
+  <input type="text" name="TrainerName" value="Ganesh" />
+
+  <br />
+
+  Technology ID(It will be Ignored): 
+
+  <input type="text" name="Subject.TechnologyId" value="1" />
+
+  <br />
+
+  Technology (It will be Ignored): 
+
+  <input type="text" name="Subject.TechnologyName" value="Dotnet" />
+
+  <br />
+
+  Designation Id: 
+
+  <input type="text" name="Level.DesignationId" value="1" />
+
+  <br />
+
+  Designation: 
+
+  <input type="text" name="Level.DesignationName" value="Manager" />
+
+  <br />
+
+
+
+  <input type="submit" value="Submit" />
+
+</form>
+
+<br />
+
+<div>
+
+  @Html.ActionLink("Data Annotation Demo", "AddEmployee")
+
+</div>
+
+
+
+add employee
+
+@model ModelsDemo.Models.Employee
+
+
+
+@{
+
+  ViewBag.Title = "AddEmployee";
+
+}
+
+
+
+<h2>AddEmployee</h2>
+
+
+
+@using (Html.BeginForm()) {
+
+  @Html.ValidationSummary(true)
+
+
+
+  <fieldset>
+
+    <legend>Employee</legend>
+
+
+
+    <div class="editor-label">
+
+      @Html.LabelFor(model => model.Id)
+
+    </div>
+
+    <div class="editor-field">
+
+      @Html.EditorFor(model => model.Id)
+
+      @Html.ValidationMessageFor(model => model.Id)
+
+    </div>
+
+    <div class="editor-label">
+
+      @Html.LabelFor(model => model.Name)
+
+    </div>
+
+    <div class="editor-field">
+
+      @Html.EditorFor(model => model.Name)
+
+      @Html.ValidationMessageFor(model => model.Name)
+
+    </div>
+
+
+
+    <div class="editor-label">
+
+      @Html.LabelFor(model => model.Designation)
+
+    </div>
+
+    <div class="editor-field">
+
+      @Html.EditorFor(model => model.Designation)
+
+      @Html.ValidationMessageFor(model => model.Designation)
+
+    </div>
+
+
+
+    <div class="editor-label">
+
+      @Html.LabelFor(model => model.Age)
+
+    </div>
+
+    <div class="editor-field">
+
+      @Html.EditorFor(model => model.Age)
+
+      @Html.ValidationMessageFor(model => model.Age)
+
+    </div>
+
+
+
+    <div class="editor-label">
+
+      @Html.LabelFor(model => model.DateOfJoining)
+
+    </div>
+
+    <div class="editor-field">
+
+      @Html.EditorFor(model => model.DateOfJoining)
+
+      @Html.ValidationMessageFor(model => model.DateOfJoining)
+
+    </div>
+
+
+
+    <div class="editor-label">
+
+      @Html.LabelFor(model => model.Email)
+
+    </div>
+
+    <div class="editor-field">
+
+      @Html.EditorFor(model => model.Email)
+
+      @Html.ValidationMessageFor(model => model.Email)
+
+    </div>
+
+
+
+    <p>
+
+      <input type="submit" value="Create" />
+
+    </p>
+
+  </fieldset>
+
+}
+
+
+
+<div>
+
+  @Html.ActionLink("Back to List", "Index")
+
+</div>
+
+
+
+@section Scripts {
+
+  @Scripts.Render("~/bundles/jqueryval")
+
+}
+
+
+
+Data Source=(LocalDb)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\aspnet-WebApplication1CodeFirst-20180921030706.mdf;Initial Catalog=aspnet-WebApplication1CodeFirst-20180921030706;Integrated Security=True
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

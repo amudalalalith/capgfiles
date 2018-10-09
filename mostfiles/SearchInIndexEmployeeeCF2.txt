@@ -1,0 +1,69 @@
+@{
+
+  
+
+  AjaxOptions options = new AjaxOptions
+
+  {
+
+    UpdateTargetId = "searchResult",
+
+    Confirm = "Are you sure to start search?",
+
+    InsertionMode = InsertionMode.Replace,
+
+    LoadingElementId = "divLoading"
+
+  };
+
+}
+
+<script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+
+<h2>Employees</h2>
+
+<table style="width: 100%;">
+
+  @*<thead>
+
+    <tr>
+
+      <th>EmployeeId</th>
+
+      <th>Name</th>
+
+      <th>Name</th>
+
+       
+
+    </tr>
+
+  </thead>*@
+
+  <tbody id="searchResult">
+
+    @Html.Action("SearchPeople", new { keyword = "" })
+
+  </tbody>
+
+</table>
+
+@using (Ajax.BeginForm("SearchPeople", options))
+
+{
+
+  <div id="divLoading" style="color: red; width: 200px; background-color: yellow; fontsize: larger; display: none; position: absolute;">
+
+    Loading ....
+
+  </div>
+
+  <div>
+
+    @Html.TextBox("keyword")
+
+    <button type="submit">Search</button>
+
+  </div>
+
+}

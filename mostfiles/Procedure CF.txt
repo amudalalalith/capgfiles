@@ -1,0 +1,718 @@
+<div class="form-group">
+
+      <div class="col-md-offset-2 col-md-10">
+
+        <input type="submit" value="Save" class="btn btn-default" />
+
+        <button type="submit" id="btnCancelSecForm" name="Command" value="Cancel" onclick="$('#cancelForm').submit()"> Cancel (Server Side by Second Form)</button>
+
+         
+
+}
+
+step-2
+
+<div class="form-group">
+
+      <div class="col-md-offset-2 col-md-10">
+
+        <input type="submit" value="Save" class="btn btn-default" />
+
+        <button type="submit" id="btnCancelSecForm" name="Command" value="Cancel" onclick="$('#cancelForm').submit()"> Cancel (Server Side by Second Form)</button>
+
+         
+
+}
+
+      </div>
+
+    </div>
+
+  </div>
+
+}
+
+@using (Html.BeginForm("MultipleButtonCancel", "Home", FormMethod.Post, new { id = "cancelForm" })) { } 
+
+
+
+ [HttpPost]
+
+    public ActionResult MultipleButtonCancel()
+
+    {
+
+
+
+      return View("Index");
+
+    }
+
+
+
+
+
+
+
+@{
+
+  ViewBag.Title = "Index";
+
+}
+
+
+
+<h2>Binding Collection</h2>
+
+
+
+
+
+<form method="get" action="@Url.Action("PrintListNumbers")">
+
+  <input type="text" name="numbers[0]" value="1" />
+
+  <input type="text" name="numbers[1]" value="2" />
+
+  <input type="text" name="numbers[2]" value="3" />
+
+  <input type="submit" value="Submit" />
+
+</form>
+
+
+
+<h2>Binding model</h2>
+
+
+
+<form method="get" action="@Url.Action("PrintTrainer")">
+
+  TrainerId : 
+
+  <input type="text" name="TrainerId" value="1" />
+
+  <br />
+
+  TrainerName : 
+
+  <input type="text" name="TrainerName" value="Ganesh" />
+
+  <br />
+
+  Technology ID(It will be Ignored): 
+
+  <input type="text" name="Subject.TechnologyId" value="1" />
+
+  <br />
+
+  Technology (It will be Ignored): 
+
+  <input type="text" name="Subject.TechnologyName" value="Dotnet" />
+
+  <br />
+
+  Designation Id: 
+
+  <input type="text" name="Level.DesignationId" value="1" />
+
+  <br />
+
+  Designation: 
+
+  <input type="text" name="Level.DesignationName" value="Manager" />
+
+  <br />
+
+
+
+  <input type="submit" value="Submit" />
+
+</form>
+
+<br />
+
+<div>
+
+  @Html.ActionLink("Data Annotation Demo", "AddEmployee")
+
+</div>
+
+
+
+add employee
+
+@model ModelsDemo.Models.Employee
+
+
+
+@{
+
+  ViewBag.Title = "AddEmployee";
+
+}
+
+
+
+<h2>AddEmployee</h2>
+
+
+
+@using (Html.BeginForm()) {
+
+  @Html.ValidationSummary(true)
+
+
+
+  <fieldset>
+
+    <legend>Employee</legend>
+
+
+
+    <div class="editor-label">
+
+      @Html.LabelFor(model => model.Id)
+
+    </div>
+
+    <div class="editor-field">
+
+      @Html.EditorFor(model => model.Id)
+
+      @Html.ValidationMessageFor(model => model.Id)
+
+    </div>
+
+    <div class="editor-label">
+
+      @Html.LabelFor(model => model.Name)
+
+    </div>
+
+    <div class="editor-field">
+
+      @Html.EditorFor(model => model.Name)
+
+      @Html.ValidationMessageFor(model => model.Name)
+
+    </div>
+
+
+
+    <div class="editor-label">
+
+      @Html.LabelFor(model => model.Designation)
+
+    </div>
+
+    <div class="editor-field">
+
+      @Html.EditorFor(model => model.Designation)
+
+      @Html.ValidationMessageFor(model => model.Designation)
+
+    </div>
+
+
+
+    <div class="editor-label">
+
+      @Html.LabelFor(model => model.Age)
+
+    </div>
+
+    <div class="editor-field">
+
+      @Html.EditorFor(model => model.Age)
+
+      @Html.ValidationMessageFor(model => model.Age)
+
+    </div>
+
+
+
+    <div class="editor-label">
+
+      @Html.LabelFor(model => model.DateOfJoining)
+
+    </div>
+
+    <div class="editor-field">
+
+      @Html.EditorFor(model => model.DateOfJoining)
+
+      @Html.ValidationMessageFor(model => model.DateOfJoining)
+
+    </div>
+
+
+
+    <div class="editor-label">
+
+      @Html.LabelFor(model => model.Email)
+
+    </div>
+
+    <div class="editor-field">
+
+      @Html.EditorFor(model => model.Email)
+
+      @Html.ValidationMessageFor(model => model.Email)
+
+    </div>
+
+
+
+    <p>
+
+      <input type="submit" value="Create" />
+
+    </p>
+
+  </fieldset>
+
+}
+
+
+
+<div>
+
+  @Html.ActionLink("Back to List", "Index")
+
+</div>
+
+
+
+@section Scripts {
+
+  @Scripts.Render("~/bundles/jqueryval")
+
+}
+
+
+
+
+
+
+
+..................................................................................................................................................................................................
+
+
+
+  var departments = new List<Department>
+
+      {
+
+        new Department {DepartmentName ="Electrical Department" },
+
+         new Department {DepartmentName ="Civil Department" },
+
+         new Department {DepartmentName ="Bio-Science Department" }
+
+      };
+
+      departments.ForEach(x => context.DEpartments.Add(x));
+
+      context.SaveChanges();
+
+      var employees = new List<Employee>
+
+      {
+
+        new Employee {EmployeeName = "Peter", Age= 25, DepartmentID = 1 },
+
+         new Employee {EmployeeName = "Jon", Age= 25, DepartmentID = 2 },
+
+         new Employee {EmployeeName = "Sachin", Age= 25, DepartmentID = 3 },
+
+          new Employee {EmployeeName = "Dhoni", Age= 25, DepartmentID = 1 },
+
+          new Employee {EmployeeName = "Tendulkar", Age= 25, DepartmentID = 2 },
+
+           new Employee {EmployeeName = "Mahi", Age= 25, DepartmentID = 3 },
+
+           new Employee {EmployeeName = "Zaheer", Age= 25, DepartmentID = 1 },
+
+      };
+
+      employees.ForEach(x => context.Employees.Add(x));
+
+      context.SaveChanges();
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Enable - Migrations
+
+------------------------------------------------------------------------------------------------------------------------------------------ </configSections>
+
+ <connectionStrings>
+
+  <add name="EmployeeDbContext" connectionString="Data Source=ndamssql\sqlilearn;Initial Catalog=8Aug_Sipcot;Persist Security Info=True;User ID=sqluser ;Password=sqluser"
+
+   providerName="System.Data.SqlClient" />
+
+ </connectionStrings>
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+=======================================================================================================
+
+codefirst example complete
+
+======================================================================================================
+
+
+
+
+
+namespace mvc_cf12.Migrations
+
+{
+
+  using Models;
+
+  using System;
+
+  using System.Collections.Generic;
+
+  using System.Data.Entity;
+
+  using System.Data.Entity.Migrations;
+
+  using System.Linq;
+
+
+
+  internal sealed class Configuration : DbMigrationsConfiguration<mvc_cf12.Models.EmployeeDbContext>
+
+  {
+
+    public Configuration()
+
+    {
+
+      AutomaticMigrationsEnabled = true;
+
+    }
+
+
+
+    protected override void Seed(mvc_cf12.Models.EmployeeDbContext context)
+
+    {
+
+      // This method will be called after migrating to the latest version.
+
+
+
+      // You can use the DbSet<T>.AddOrUpdate() helper extension method 
+
+      // to avoid creating duplicate seed data. E.g.
+
+      //
+
+      //  context.People.AddOrUpdate(
+
+      //   p => p.FullName,
+
+      //   new Person { FullName = "Andrew Peters" },
+
+      //   new Person { FullName = "Brice Lambson" },
+
+      //   new Person { FullName = "Rowan Miller" }
+
+      //  );
+
+      //
+
+      var departments = new List<Department>
+
+      {
+
+        new Department {DepartmentName="Electrical Department" },
+
+        new Department {DepartmentName="Civil Department" },
+
+        new Department {DepartmentName="Bio-Science Department" }
+
+      };
+
+      departments.ForEach(x => context.Departments.Add(x));
+
+      context.SaveChanges();
+
+      var employees = new List<EmployeeCF1>
+
+      {
+
+        new EmployeeCF1 {EmployeeeName="Peter", Age=23, DepartmentId=1 },
+
+        new EmployeeCF1 {EmployeeeName="Patrick", Age=23, DepartmentId=2 },
+
+        new EmployeeCF1 {EmployeeeName="John", Age=26, DepartmentId=3 },
+
+        new EmployeeCF1 {EmployeeeName="Ronald", Age=29, DepartmentId=2 },
+
+        new EmployeeCF1 {EmployeeeName="Lionel", Age=31, DepartmentId=1 },
+
+        new EmployeeCF1 {EmployeeeName="Arthur", Age=25, DepartmentId=2 },
+
+        new EmployeeCF1 {EmployeeeName="Meza", Age=28, DepartmentId=3 },
+
+      };
+
+      employees.ForEach(x => context.Employees.Add(x));
+
+      context.SaveChanges();
+
+    }
+
+  }
+
+}
+
+==============================================================================================
+
+web.config
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+
+ For more information on how to configure your ASP.NET application, please visit
+
+ http://go.microsoft.com/fwlink/?LinkId=301880
+
+ -->
+
+<configuration>
+
+ <configSections>
+
+  <!-- For more information on Entity Framework configuration, visit http://go.microsoft.com/fwlink/?LinkID=237468 -->
+
+  <section name="entityFramework" type="System.Data.Entity.Internal.ConfigFile.EntityFrameworkSection, EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" requirePermission="false" />
+
+ </configSections>
+
+ <connectionStrings>
+
+  <add name="EmployeeDbContext" connectionString="Data Source=ndamssql\sqlilearn;Initial Catalog=8Aug_Sipcot;Persist Security Info=True;User ID=sqluser ;Password=sqluser"
+
+   providerName="System.Data.SqlClient" />
+
+ </connectionStrings>
+
+ <appSettings>
+
+  <add key="webpages:Version" value="3.0.0.0" />
+
+  <add key="webpages:Enabled" value="false" />
+
+  <add key="ClientValidationEnabled" value="true" />
+
+  <add key="UnobtrusiveJavaScriptEnabled" value="true" />
+
+ </appSettings>
+
+ <system.web>
+
+  <authentication mode="None" />
+
+  <compilation debug="true" targetFramework="4.5.2" />
+
+  <httpRuntime targetFramework="4.5.2" />
+
+ </system.web>
+
+ <system.webServer>
+
+  <modules>
+
+   <remove name="FormsAuthentication" />
+
+  </modules>
+
+ </system.webServer>
+
+ <runtime>
+
+  <assemblyBinding xmlns="urn:schemas-microsoft-com:asm.v1">
+
+   <dependentAssembly>
+
+    <assemblyIdentity name="Microsoft.Owin.Security" publicKeyToken="31bf3856ad364e35" />
+
+    <bindingRedirect oldVersion="1.0.0.0-3.0.1.0" newVersion="3.0.1.0" />
+
+   </dependentAssembly>
+
+   <dependentAssembly>
+
+    <assemblyIdentity name="Microsoft.Owin.Security.OAuth" publicKeyToken="31bf3856ad364e35" />
+
+    <bindingRedirect oldVersion="1.0.0.0-3.0.1.0" newVersion="3.0.1.0" />
+
+   </dependentAssembly>
+
+   <dependentAssembly>
+
+    <assemblyIdentity name="Microsoft.Owin.Security.Cookies" publicKeyToken="31bf3856ad364e35" />
+
+    <bindingRedirect oldVersion="1.0.0.0-3.0.1.0" newVersion="3.0.1.0" />
+
+   </dependentAssembly>
+
+   <dependentAssembly>
+
+    <assemblyIdentity name="Microsoft.Owin" publicKeyToken="31bf3856ad364e35" />
+
+    <bindingRedirect oldVersion="1.0.0.0-3.0.1.0" newVersion="3.0.1.0" />
+
+   </dependentAssembly>
+
+   <dependentAssembly>
+
+    <assemblyIdentity name="Newtonsoft.Json" culture="neutral" publicKeyToken="30ad4fe6b2a6aeed" />
+
+    <bindingRedirect oldVersion="0.0.0.0-6.0.0.0" newVersion="6.0.0.0" />
+
+   </dependentAssembly>
+
+   <dependentAssembly>
+
+    <assemblyIdentity name="System.Web.Optimization" publicKeyToken="31bf3856ad364e35" />
+
+    <bindingRedirect oldVersion="1.0.0.0-1.1.0.0" newVersion="1.1.0.0" />
+
+   </dependentAssembly>
+
+   <dependentAssembly>
+
+    <assemblyIdentity name="WebGrease" publicKeyToken="31bf3856ad364e35" />
+
+    <bindingRedirect oldVersion="0.0.0.0-1.5.2.14234" newVersion="1.5.2.14234" />
+
+   </dependentAssembly>
+
+   <dependentAssembly>
+
+    <assemblyIdentity name="System.Web.Helpers" publicKeyToken="31bf3856ad364e35" />
+
+    <bindingRedirect oldVersion="1.0.0.0-3.0.0.0" newVersion="3.0.0.0" />
+
+   </dependentAssembly>
+
+   <dependentAssembly>
+
+    <assemblyIdentity name="System.Web.Mvc" publicKeyToken="31bf3856ad364e35" />
+
+    <bindingRedirect oldVersion="1.0.0.0-5.2.3.0" newVersion="5.2.3.0" />
+
+   </dependentAssembly>
+
+   <dependentAssembly>
+
+    <assemblyIdentity name="System.Web.WebPages" publicKeyToken="31bf3856ad364e35" />
+
+    <bindingRedirect oldVersion="1.0.0.0-3.0.0.0" newVersion="3.0.0.0" />
+
+   </dependentAssembly>
+
+  </assemblyBinding>
+
+ </runtime>
+
+ <entityFramework>
+
+  <contexts>
+
+   <context type="mvc_cf12.Models.EmployeeDbContext, MVC_CodeFirst">
+
+    <databaseInitializer type="mvc_cf12.Models.EmployeeDbInitializer, MVC_CodeFirst"></databaseInitializer>
+
+   </context>
+
+  </contexts>
+
+  <defaultConnectionFactory type="System.Data.Entity.Infrastructure.SqlConnectionFactory, EntityFramework" />
+
+  <providers>
+
+   <provider invariantName="System.Data.SqlClient" type="System.Data.Entity.SqlServer.SqlProviderServices, EntityFramework.SqlServer" />
+
+  </providers>
+
+ </entityFramework>
+
+ <system.codedom>
+
+  <compilers>
+
+   <compiler language="c#;cs;csharp" extension=".cs" type="Microsoft.CodeDom.Providers.DotNetCompilerPlatform.CSharpCodeProvider, Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" warningLevel="4" compilerOptions="/langversion:6 /nowarn:1659;1699;1701" />
+
+   <compiler language="vb;vbs;visualbasic;vbscript" extension=".vb" type="Microsoft.CodeDom.Providers.DotNetCompilerPlatform.VBCodeProvider, Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" warningLevel="4" compilerOptions="/langversion:14 /nowarn:41008 /define:_MYTYPE=\&quot;Web\&quot; /optionInfer+" />
+
+  </compilers>
+
+ </system.codedom>
+
+</configuration>
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Update-Database
+
+--------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
