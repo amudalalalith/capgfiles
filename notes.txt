@@ -1,0 +1,148 @@
+    MTT
+M2  28 10.5
+
+M3  20 7.5
+
+M4  19 7.125
+
+
+
+
+html 5 tags
+checked 
+required
+autofocus
+readonly
+disabled
+
+symantic and non symantic controls
+new html elements
+doctype - entire page accepts html 5 syntax 
+
+css
+selectors
+#header1{color:yellow; font:10px}
+.header2{color:yellow; font:10px}
+[title]{color:yellow; font:10px} - attribute
+:visited{color:yellow; font:10px} - psudo - based on users action
+*{fontfamily:Arial, Verdana} - universal selectors
+
+
+types of css
+-inline
+-embeded - in the head tag
+-external
+link rel = style sheet and type = text/css src
+
+text-transform : uppercase
+
+html - predrmyayop
+
+xml documents 
+pi - processing instructions
+
+
+SQl Server - 4
+aggregate function
+-sum, max, min, 
+joints and subquerys
+
+2-items in  3-items in category table
+
+self join
+like s%
+like _i%
+
+>RaiseError
+1-50000 sql errors
+register after 50001 
+Raiser error will take - 4 parameters
+1st parameter -
+2nd parameter-
+3rd -
+4 -
+
+exception handelling
+
+transaction
+-transaction commit
+-transaction 
+
+indexes in 
+algorithm
+-linear
+-binary
+
+types of index
+-clustured will be automatically created if table has primary key 
+ -unique clustured
+ -exact values or data 
+-non clustured
+ -unique non clustured when the table has unquie key coloumn in it
+ -reference 
+
+filtered index - only one tabel not multimple tables or not on view
+create index clustered/.. index name on tabel name where..
+
+view
+-Virtual tabel
+-create view 
+
+sp_helptext table name/stored procedure/ view
+-defination of the given object
+
+current date in sql - get date
+
+code manager in clr
+
+msil-ildasm
+manifest - details regarding the metadata -runtime specification 
+
+parts of assembly
+-portable executable
+-manifest 
+
+metadata
+-name 
+-version
+-copyrights
+-file path
+-culture information
+of assembly
+
+0-258 bytes in 
+type checker component
+
+COM type - component object model - unmanaged - type checker not valid
+
+CLS-Common language specification
+CLI - common language 
+
+date time parse
+parse
+parse exact
+
+
+extension methods
+
+current property
+
+ienumerator 
+get enumerator
+
+icomparable
+-compare to
+
+collection intilizer
+object initializer
+
+
+
+
+
+
+
+
+
+
+
